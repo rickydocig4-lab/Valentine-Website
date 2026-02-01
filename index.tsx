@@ -1,6 +1,10 @@
 import React, { useState, useMemo } from 'react';
 import { createRoot } from 'react-dom/client';
 import confetti from 'canvas-confetti';
+import "./Photo1.jpg";
+import "./Photo2.jpg";
+import "./Photo3.jpg";
+import "./Photo4.jpg";
 
 const AppState = {
     INITIAL: 'INITIAL',
