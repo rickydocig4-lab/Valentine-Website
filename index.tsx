@@ -1,4 +1,3 @@
-
 import React, { useState, useMemo } from 'react';
 import { createRoot } from 'react-dom/client';
 import confetti from 'canvas-confetti';
@@ -190,12 +189,18 @@ const App = () => {
                                     <div key={i} className={`bg-white p-2 pb-6 shadow-xl border border-rose-100 transform transition-transform hover:scale-110 hover:z-20 ${i % 2 === 0 ? '-rotate-3' : 'rotate-2'}`}>
                                         <div className="aspect-[3/4] overflow-hidden bg-rose-50 rounded-sm">
                                             <img 
-                                                src="Photo.jpeg" 
-                                                alt="Smriti" 
+                                                src={`Photo${i + 1}.jpeg`} 
+                                                alt={`Smriti ${i + 1}`} 
                                                 className="w-full h-full object-cover"
                                                 onError={(e: any) => {
-                                                    e.target.onerror = null;
-                                                    e.target.src = `https://placehold.co/400x600/fff1f2/e11d48?text=Beautiful+Smriti+${i+1}`;
+                                                    const target = e.currentTarget;
+                                                    // Try .jpg if .jpeg fails
+                                                    if (target.src.toLowerCase().endsWith('.jpeg')) {
+                                                        target.src = target.src.slice(0, -5) + '.jpg';
+                                                    } else {
+                                                        target.onerror = null;
+                                                        target.src = `https://placehold.co/400x600/fff1f2/e11d48?text=Beautiful+Smriti+${i+1}`;
+                                                    }
                                                 }}
                                             />
                                         </div>
