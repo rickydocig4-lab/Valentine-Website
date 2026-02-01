@@ -1,6 +1,7 @@
-import React, { useState, useMemo } from 'https://esm.sh/react@19';
-import { createRoot } from 'https://esm.sh/react-dom@19/client';
-import confetti from 'https://esm.sh/canvas-confetti';
+
+import React, { useState, useMemo } from 'react';
+import { createRoot } from 'react-dom/client';
+import confetti from 'canvas-confetti';
 
 const AppState = {
     INITIAL: 'INITIAL',
