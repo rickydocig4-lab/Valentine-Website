@@ -66,12 +66,12 @@ const App: React.FC = () => {
     return '🧸';
   };
 
-  // Using explicit relative paths to ensure the browser finds the files in the root
+  // We'll look for Photo.jpeg as primary and numbered ones as backups
   const collagePhotos = [
-    "./Photo1.jpeg",
-    "./Photo2.jpeg",
-    "./Photo3.jpeg",
-    "./Photo4.jpeg"
+    "Photo.jpeg",
+    "Photo1.jpeg",
+    "Photo2.jpeg",
+    "Photo3.jpeg"
   ];
 
   return (
@@ -171,9 +171,13 @@ const App: React.FC = () => {
                         alt={`Smriti ${index + 1}`} 
                         className="w-full h-full object-cover"
                         onError={(e) => {
-                          // Log error to console to help debugging local file issues
-                          console.warn(`Failed to load image: ${photo}. Please ensure the file exists in the root directory and the filename matches exactly.`);
-                          (e.target as HTMLImageElement).src = `https://placehold.co/400x600/fff1f2/e11d48?text=Image+Not+Found`;
+                          const img = e.target as HTMLImageElement;
+                          if (!img.dataset.tried) {
+                            img.dataset.tried = "true";
+                            img.src = "Photo.jpeg"; // Fallback to basic Photo.jpeg if specific ones fail
+                          } else {
+                            img.src = `https://placehold.co/400x600/fff1f2/e11d48?text=Photo+${index+1}`;
+                          }
                         }}
                       />
                     </div>
