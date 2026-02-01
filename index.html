@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -64,13 +65,15 @@
 <script type="importmap">
 {
   "imports": {
-    "react/": "https://esm.sh/react@^19.2.4/"
+    "react/": "https://esm.sh/react@^19.2.4/",
+    "vite": "https://esm.sh/vite@^7.3.1"
   }
 }
 </script>
 </head>
 <body class="bg-mesh">
     <div id="root"></div>
-    <!-- index.tsx is automatically imported as an ES module by the environment -->
+    <!-- Explicitly import the main script for standard hosting like Vercel -->
+    <script type="module" src="/index.tsx"></script>
 </body>
 </html>
