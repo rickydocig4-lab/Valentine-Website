@@ -200,7 +200,7 @@ const App = () => {
                                 <div className="bg-white p-2 pb-6 shadow-xl border border-rose-100 transform transition-transform hover:scale-110 hover:z-20 -rotate-3">
                                     <div className="aspect-[3/4] overflow-hidden bg-rose-50 rounded-sm">
                                         <img 
-                                            src="Photo1.jpg" 
+                                            src="./Photo1.jpg" 
                                             alt="Smriti 1" 
                                             className="w-full h-full object-cover"
                                             onError={(e) => handleImageError(e, 1)}
@@ -213,7 +213,7 @@ const App = () => {
                                 <div className="bg-white p-2 pb-6 shadow-xl border border-rose-100 transform transition-transform hover:scale-110 hover:z-20 rotate-2">
                                     <div className="aspect-[3/4] overflow-hidden bg-rose-50 rounded-sm">
                                         <img 
-                                            src="Photo2.jpg" 
+                                            src="./Photo2.jpg" 
                                             alt="Smriti 2" 
                                             className="w-full h-full object-cover"
                                             onError={(e) => handleImageError(e, 2)}
@@ -226,7 +226,7 @@ const App = () => {
                                 <div className="bg-white p-2 pb-6 shadow-xl border border-rose-100 transform transition-transform hover:scale-110 hover:z-20 rotate-3">
                                     <div className="aspect-[3/4] overflow-hidden bg-rose-50 rounded-sm">
                                         <img 
-                                            src="Photo3.jpg" 
+                                            src="./Photo3.jpg" 
                                             alt="Smriti 3" 
                                             className="w-full h-full object-cover"
                                             onError={(e) => handleImageError(e, 3)}
@@ -239,7 +239,7 @@ const App = () => {
                                 <div className="bg-white p-2 pb-6 shadow-xl border border-rose-100 transform transition-transform hover:scale-110 hover:z-20 -rotate-2">
                                     <div className="aspect-[3/4] overflow-hidden bg-rose-50 rounded-sm">
                                         <img 
-                                            src="Photo4.jpg" 
+                                            src="./Photo4.jpg" 
                                             alt="Smriti 4" 
                                             className="w-full h-full object-cover"
                                             onError={(e) => handleImageError(e, 4)}
