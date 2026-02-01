@@ -121,6 +121,17 @@ const App = () => {
         return '🧸';
     };
 
+    // Helper for image fallback
+    const handleImageError = (e: React.SyntheticEvent<HTMLImageElement, Event>, index: number) => {
+        const target = e.currentTarget;
+        if (target.src.toLowerCase().endsWith('.jpeg')) {
+            target.src = target.src.slice(0, -5) + '.jpg';
+        } else {
+            target.onerror = null;
+            target.src = `https://placehold.co/400x600/fff1f2/e11d48?text=Beautiful+Smriti+${index}`;
+        }
+    };
+
     return (
         <div className="min-h-screen w-full flex flex-col items-center justify-start md:justify-center p-4 py-12 relative overflow-hidden">
             <HeartBackground />
@@ -185,28 +196,57 @@ const App = () => {
                             <p className="text-pink-500 text-xl font-medium italic animate-pulse">You just made me the happiest teddy bear alive! 💍💘</p>
 
                             <div className="grid grid-cols-2 gap-3 mt-6 p-2">
-                                {[0,1,2,3].map((i) => (
-                                    <div key={i} className={`bg-white p-2 pb-6 shadow-xl border border-rose-100 transform transition-transform hover:scale-110 hover:z-20 ${i % 2 === 0 ? '-rotate-3' : 'rotate-2'}`}>
-                                        <div className="aspect-[3/4] overflow-hidden bg-rose-50 rounded-sm">
-                                            <img 
-                                                src={`Photo${i + 1}.jpeg`} 
-                                                alt={`Smriti ${i + 1}`} 
-                                                className="w-full h-full object-cover"
-                                                onError={(e: any) => {
-                                                    const target = e.currentTarget;
-                                                    // Try .jpg if .jpeg fails
-                                                    if (target.src.toLowerCase().endsWith('.jpeg')) {
-                                                        target.src = target.src.slice(0, -5) + '.jpg';
-                                                    } else {
-                                                        target.onerror = null;
-                                                        target.src = `https://placehold.co/400x600/fff1f2/e11d48?text=Beautiful+Smriti+${i+1}`;
-                                                    }
-                                                }}
-                                            />
-                                        </div>
-                                        <div className="pt-2 text-[10px] text-rose-300 font-bold uppercase tracking-tighter italic">Valentine ✨</div>
+                                {/* Photo 1 Container */}
+                                <div className="bg-white p-2 pb-6 shadow-xl border border-rose-100 transform transition-transform hover:scale-110 hover:z-20 -rotate-3">
+                                    <div className="aspect-[3/4] overflow-hidden bg-rose-50 rounded-sm">
+                                        <img 
+                                            src="Photo1.jpeg" 
+                                            alt="Smriti 1" 
+                                            className="w-full h-full object-cover"
+                                            onError={(e) => handleImageError(e, 1)}
+                                        />
                                     </div>
-                                ))}
+                                    <div className="pt-2 text-[10px] text-rose-300 font-bold uppercase tracking-tighter italic text-center">Valentine ✨</div>
+                                </div>
+
+                                {/* Photo 2 Container */}
+                                <div className="bg-white p-2 pb-6 shadow-xl border border-rose-100 transform transition-transform hover:scale-110 hover:z-20 rotate-2">
+                                    <div className="aspect-[3/4] overflow-hidden bg-rose-50 rounded-sm">
+                                        <img 
+                                            src="Photo2.jpeg" 
+                                            alt="Smriti 2" 
+                                            className="w-full h-full object-cover"
+                                            onError={(e) => handleImageError(e, 2)}
+                                        />
+                                    </div>
+                                    <div className="pt-2 text-[10px] text-rose-300 font-bold uppercase tracking-tighter italic text-center">Beautiful ✨</div>
+                                </div>
+
+                                {/* Photo 3 Container */}
+                                <div className="bg-white p-2 pb-6 shadow-xl border border-rose-100 transform transition-transform hover:scale-110 hover:z-20 rotate-3">
+                                    <div className="aspect-[3/4] overflow-hidden bg-rose-50 rounded-sm">
+                                        <img 
+                                            src="Photo3.jpeg" 
+                                            alt="Smriti 3" 
+                                            className="w-full h-full object-cover"
+                                            onError={(e) => handleImageError(e, 3)}
+                                        />
+                                    </div>
+                                    <div className="pt-2 text-[10px] text-rose-300 font-bold uppercase tracking-tighter italic text-center">Perfect ✨</div>
+                                </div>
+
+                                {/* Photo 4 Container */}
+                                <div className="bg-white p-2 pb-6 shadow-xl border border-rose-100 transform transition-transform hover:scale-110 hover:z-20 -rotate-2">
+                                    <div className="aspect-[3/4] overflow-hidden bg-rose-50 rounded-sm">
+                                        <img 
+                                            src="Photo4.jpeg" 
+                                            alt="Smriti 4" 
+                                            className="w-full h-full object-cover"
+                                            onError={(e) => handleImageError(e, 4)}
+                                        />
+                                    </div>
+                                    <div className="pt-2 text-[10px] text-rose-300 font-bold uppercase tracking-tighter italic text-center">My Love ✨</div>
+                                </div>
                             </div>
 
                             <div className="bg-rose-50/50 p-6 rounded-3xl border border-rose-100 mt-4 shadow-inner">
